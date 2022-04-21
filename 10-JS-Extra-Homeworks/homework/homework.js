@@ -24,7 +24,16 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 }
   //Escribe tu código aquí
-
+  let objeto = {};
+  for (var i = 0; i < string.length; i++) {
+    if ( objeto.hasOwnProperty(string[i]) ) {
+      objeto[string[i]] += 1;
+    }
+    else {
+      objeto[string[i]] = 1;
+    }
+  }
+  return objeto;
 }
 
 
@@ -33,6 +42,17 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
+  let minu = '';
+  let mayu = '';
+  for (var i = 0; i < s.length; i++) {
+    if (s[i] >= 'a' && s[i] <= 'z') {
+      minu += s[i];
+    }
+    if (s[i] >= 'A' && s[i] <= 'Z') {
+      mayu += s[i];
+    }
+  }
+  return mayu + minu;
 }
 
 
@@ -42,6 +62,18 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
+  let tmpPalabra = tmpFrase = '';
+  for (var i = 0; i < str.length; i++) {
+    if (str[i] !== ' ') {
+      tmpPalabra = str[i] + tmpPalabra;
+    }
+    else {
+      tmpFrase = tmpFrase + tmpPalabra + ' ';
+      tmpPalabra = '';
+    }
+  }
+  tmpFrase = tmpFrase + tmpPalabra;
+  return tmpFrase;
 }
 
 
